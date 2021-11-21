@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main-w3layouts wrapper">
+    <h1>Creative SignUp Form</h1>
+    {% if messages %}
+        {% for msg in messages %}
+        <p style="color: brown;">{{msg}}</p>
+        <br>
+        {% endfor %}
+    {% endif %}
+    <div class="main-agileinfo">
+        <div class="agileits-top">
+            <form action="{% url 'student_registration' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input class="text" type="text" name="sname" placeholder="Name" required>
+                <input class="text email" type="text" name="standerd" placeholder="Standerd" required>
+                <input class="text" type="text" name="phone" placeholder="Phone" required>
+                <input class="text w3lpass" type="text" name="address" placeholder="Address" required>
+                <input class="text w3lpass" type="text" name="previous_school" placeholder="Previous School" required>
+                <input class="text w3lpass" type="text" name="previous_result" placeholder="Previous Result" required>
+                <p>Upload Your Image</p>
+                <input class="text w3lpass" type="file" name="image" required>
+                
+                <input type="submit" value="Submit">
+            </form>
+         
+        </div>
+    </div>
+    <!-- copyright -->
+    <div class="colorlibcopy-agile">
+        <p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+    </div>
+    <!-- //copyright -->
+    <ul class="colorlib-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<!-- //main -->
+
+{% endblock %}
