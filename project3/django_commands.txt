@@ -1,0 +1,11 @@
+1. virtualenv venv  ( virtual enviroment Create )
+2. .\venv\scripts\activate
+3.  pip install django
+4. django-admin startproject project3 .  ( Project Create )
+5. python manage.py startapp home ( Django App Create )
+6. python manage.py runserver  ( Run the Project)
+7. python manage.py makemigrations  ( migrations the Model/Models )
+8. python manage.py migrate  ( Migrate the Project )
+9. python manage.py createsuperuser  ( Create Super User )
+10. python manage.py collectstatic  ( Collect static files )
+11. pip install pillow  ( Pillow is a Python library for image manipulation )
