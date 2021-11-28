@@ -34,5 +34,4 @@
 # print("The price is: ", price)
 
 a= 10
-b = True
-# a==True
+
