@@ -15,9 +15,15 @@ class Property(models.Model):
     beds = models.CharField(max_length=250)
     baths =models.CharField(max_length=250)
     garage =models.CharField(max_length=250)
+    date_added = models.DateField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ('-date_added',)
     
     def __str__(self):
         return self.name
+    
+
     
 class Slider(models.Model):
     image = models.ImageField(upload_to="slider/")
