@@ -1,10 +1,11 @@
 from django.db import models
-
+from embed_video.fields import EmbedVideoField
 # Create your models here.
 
 
 
 class Property(models.Model):
+    # user = models.ForeignKey()
     name = models.CharField(max_length=250)
     description = models.TextField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
@@ -15,8 +16,9 @@ class Property(models.Model):
     beds = models.CharField(max_length=250)
     baths =models.CharField(max_length=250)
     garage =models.CharField(max_length=250)
+    video = EmbedVideoField(blank=True,null=True)
     date_added = models.DateField(auto_now_add=True)
-    
+    is_publish = models.BooleanField(default=False)
     class Meta:
         ordering = ('-date_added',)
     

@@ -6,8 +6,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls')),
+    path('accounts/',include('accounts.urls')),
     path('summernote/', include('django_summernote.urls')),
 ]
 if settings.DEBUG:
     urlpatterns= urlpatterns + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
     urlpatterns= urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+    

@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<main id="main">
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-sm-12 section-t8">
+            <div class="row">
+                {% if messages %} 
+                {% for msg in messages %}
+                    <p style="color: red">{{ msg }}</p>
+                    <br />
+                {% endfor %} 
+                {% endif %}
+              <div class="col-md-12">
+                <form action="{% url 'post_property' %}" method="POST" enctype="multipart/form-data" role="form">
+                    {% csrf_token %}
+                  <div class="row">
+                    
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input name="name" type="text" class="form-control form-control-lg form-control-a" placeholder="Enter Property Name" required>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <div class="form-group">
+                          <textarea name="description" class="form-control" type="message" cols="45" rows="8" placeholder="Description" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="price" type="text" class="form-control form-control-lg form-control-a" placeholder="Enter Price" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="location" type="text" class="form-control form-control-lg form-control-a" placeholder="Enter location" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="property_type" type="text" class="form-control form-control-lg form-control-a" placeholder="Enter property type" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="area" type="number" class="form-control form-control-lg form-control-a" placeholder="Enter Area" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="beds" type="number" class="form-control form-control-lg form-control-a" placeholder="Enter Beds" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="baths" type="number" class="form-control form-control-lg form-control-a" placeholder="Enter Baths" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="garage" type="number" class="form-control form-control-lg form-control-a" placeholder="Enter Garage" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                          <input name="video" type="text" class="form-control form-control-lg form-control-a" placeholder="Enter Video Link" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-group">
+                        <p>Enter a Property Image</p>
+                          <input name="image" type="file" class="form-control form-control-lg form-control-a" placeholder="Image" required>
+                        </div>
+                    </div>
+                   
+                  
+                    
+                    
+
+                    <div class="col-md-12 text-center">
+                      <button type="submit" class="btn btn-a">POST</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Single-->
+
+  </main><!-- End #main -->
+{% endblock content %}
+    
