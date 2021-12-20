@@ -20,6 +20,7 @@ class Property(models.Model):
     video = EmbedVideoField(blank=True,null=True)
     date_added = models.DateField(auto_now_add=True)
     is_publish = models.BooleanField(default=False)
+    
     class Meta:
         ordering = ('-date_added',)
     

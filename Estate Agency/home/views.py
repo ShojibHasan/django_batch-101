@@ -92,3 +92,60 @@ def inquary(request):
     else:
         return render(request,'home/single_property.html')
     # return render(request,'home/single_property.html')
+    
+    
+def search(request):
+    get_method = request.GET.copy()
+    keywords = get_method.get('keywords') or None
+    # property_types = get_method.get('property_types') or None
+    # property_bedrooms = get_method.get('property_bedrooms') or None
+    # property_garages = get_method.get('property_garages') or None
+    # property_baths = get_method.get('property_baths') or None
+    # property_prices = get_method.get('property_price') or None
+    property_list = Property.objects.all()
+    print(get_method)
+    if keywords is not None:
+        keyword = get_method['keywords']
+        property_list = property_list.filter(description__icontains = keyword)
+    
+    if 'property_types' in get_method:
+        property_type = get_method['property_types']
+        if property_type == 'None':
+            pass
+        else:
+            property_list = property_list.filter(property_type__iexact = property_type)
+        
+    
+    if 'property_bedrooms' in get_method:
+        property_bedroom = get_method['property_bedrooms']
+        if property_bedroom == 'None':
+            pass 
+        else:
+            property_list = property_list.filter(beds__lte = property_bedroom)
+    
+    if 'property_garages' in get_method:
+        property_garage = get_method['property_garages']
+        if property_garage == 'None':
+            pass 
+        else:
+            property_list = property_list.filter(garage__lte = property_garage)
+    
+    if 'property_baths' in get_method:
+        property_bath = get_method['property_baths']
+        if property_bath=='None':
+            pass 
+        else:
+            property_list = property_list.filter(baths__lte = property_bath)
+    
+    if 'property_prices' in get_method:
+        property_price = get_method['property_prices']
+        if property_price == 'None':
+            pass 
+        else:
+            property_list = property_list.filter(price__lte = property_price)
+    
+    
+    context={
+        'property_list':property_list
+    }
+    return render(request,'includes/search_result.html',context)
